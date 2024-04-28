@@ -32,7 +32,7 @@ const App=() =>{
 
   useEffect(()=>{
     if(authUser){
-      const socketio = io(`http://localhost:5000`, {
+      const socketio = io(`https://chat-app-prod-lyjz.onrender.com/`, {
           query:{
             userId:authUser._id
           }
