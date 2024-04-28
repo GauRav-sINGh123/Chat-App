@@ -7,7 +7,7 @@ import {useSelector,useDispatch} from "react-redux";
 import io from "socket.io-client";
 import { setSocket } from './redux/socketSlice';
 import { setOnlineUsers } from './redux/userSlice';
-import { BASE_URL } from '.';
+ 
 
 const router = createBrowserRouter([
   {
@@ -25,14 +25,14 @@ const router = createBrowserRouter([
 
 ])
 
-function App() { 
+const App=() =>{ 
   const {authUser} = useSelector(store=>store.user);
   const {socket} = useSelector(store=>store.socket);
   const dispatch = useDispatch();
 
   useEffect(()=>{
     if(authUser){
-      const socketio = io(`${BASE_URL}`, {
+      const socketio = io(`http://localhost:5000`, {
           query:{
             userId:authUser._id
           }
